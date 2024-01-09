@@ -14,12 +14,15 @@
 nav {
   padding: 30px;
   color: white;
+  text-align: center;
   /* position: static; */
 }
 
 nav a {
   font-weight: bold;
   color: white;
+  padding: 5px;
+  
 
 }
 
