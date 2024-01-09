@@ -8,7 +8,7 @@
     <div>
       <!-- Your other components and content -->
   
-      <div v-if="$store.state.about && $store.state.about.trim() !== '' " id="about-text">
+      <div v-if="$store.state.about && typeof $store.state.about === 'string' && $store.state.about.trim() !== ''" id="about-text">
         <p id="about-sentence" >{{ $store.state.about }}</p>
       </div>
   
