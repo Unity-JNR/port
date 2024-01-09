@@ -9,7 +9,8 @@ export default createStore({
     home: [],
     education: [],
     job:[],
-    testimonial:[]
+    testimonial:[],
+    project:[]
   },
   mutations: {
     setData(state, data) {
@@ -26,6 +27,9 @@ export default createStore({
     },
     setTestimonial(state,data){
       state.testimonial = data
+    },
+    setProject(state,data){
+      state.project = data
     }
     
   },
@@ -122,6 +126,31 @@ export default createStore({
           .then(data => {
           //  console.log(data[0])
           commit('setTestimonial', data.testimonial);
+          // console.log("Image URL:", data);
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+            // Optionally, you can commit an error state mutation here
+            // commit('setError', error.message);
+          });
+      } catch (error) {
+        console.error('An unexpected error occurred:', error);
+        // Optionally, you can commit an error state mutation here
+        // commit('setError', 'An unexpected error occurred');
+      }
+    },
+    fetchProject({ commit }) {
+      try {
+        fetch(hostedData)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+           console.log(data.projects[0])
+          commit('setProject', data.projects);
           // console.log("Image URL:", data);
           })
           .catch(error => {

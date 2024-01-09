@@ -89,7 +89,7 @@ import 'bootstrap/dist/js/bootstrap.js'
 
 </script>
 
-<style>
+<style scoped>
 #heading{
     color: white;
 }
