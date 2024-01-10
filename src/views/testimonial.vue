@@ -35,6 +35,8 @@
  <script>
  // @ is an alias to /src
  import Navigation from '@/components/Navigation.vue'
+//  import 'bootstrap/dist/css/bootstrap.css'
+
  
  export default {
  
@@ -53,10 +55,12 @@
      }
  
  }
+//  import 'bootstrap/dist/js/bootstrap.js'
+
  </script>
  
  
- <style scoped>
+ <style >
  #heading{
      color: white;
  }

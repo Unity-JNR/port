@@ -11,12 +11,12 @@
 
                     <div class="card__content | flow">
                         <div class="card__content--container | flow">
-                            <h2 class="card__title">education</h2>
+                            <h2 class="card__title" id="h2">education</h2>
                             <div class="card__text-center">
-                                <p class="card__description">
+                                <p class="card__description" id="para">
                                     {{ $store.state.education.school }}
                                 </p>
-                                <p class="card__description">
+                                <p class="card__description" id="para">
                                     {{ $store.state.education.year }}
                                 </p>
                             </div>
@@ -34,15 +34,15 @@
 
                     <div class="card__content | flow">
                         <div class="card__content--container | flow">
-                            <h2 class="card__title">JOB</h2>
+                            <h2 class="card__title" id="h2">JOB</h2>
                             <div class="card__text-center">
-                                <p class="card__description">
+                                <p class="card__description" id="para">
                                     {{ $store.state.job.work }}
                                 </p>
-                                <p class="card__description">
+                                <p class="card__description" id="para">
                                     {{ $store.state.job.at }}
                                 </p>
-                                <p class="card__description">
+                                <p class="card__description" id="para">
                                     {{ $store.state.job.time }}
                                 </p>
                             </div>
@@ -52,6 +52,14 @@
             </div>
         </div>
     </div>
+</div>
+
+<div v-for="skill in $store.state.skills" :key="skill.level" id="placement">
+<div>
+  <img :src="skill.img" alt="" id="skillimage">
+  <p id="skilltext">{{skill.level}}</p>
+</div>
+
 </div>
 
 
@@ -75,13 +83,17 @@ export default {
       this.$store.dispatch('fetcheducation');
     },
     fetchJob(){
-      return this.$store.dispatch('fetchJob');
+       this.$store.dispatch('fetchJob');
+    },
+    fetchSkills(){
+      this.$store.dispatch('fetchSkills');
     }
   },
 
   mounted(){
     this.fetcheducation
     this.fetchJob
+    this.fetchSkills
   }
  
 }
@@ -89,7 +101,7 @@ import 'bootstrap/dist/js/bootstrap.js'
 
 </script>
 
-<style scoped>
+<style>
 #heading{
     color: white;
 }
@@ -114,9 +126,9 @@ color: lawngreen;
 
 
 /* Remove default margin */
-body,
-h2,
-p {
+.body,
+#h2,
+#Para {
   margin: 0;
 }
 
@@ -127,14 +139,14 @@ p {
   /* height: 100vh; */
 }
 
-h2 {
+#h2 {
   font-size: 2.25rem;
   font-family: var(--font-title);
   color: var(--white);
   line-height: 1.1;
 }
 
-p {
+#para {
   font-family: var(--font-text);
   font-size: 1rem;
   line-height: 1.5;
@@ -206,6 +218,21 @@ p {
 .card__text-center {
     text-align: center;
 }
+#skillimage{
+    width: 250px;
+    height: 250px;
+    background-color: white;
+  }
+  #placement{
+    display: inline-block;
+    padding: 20px;
+  }
+  #skilltext{
+    color: white;
+    font-weight: 800;
+    font-size: medium;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
 
 
 
@@ -274,6 +301,7 @@ p {
     transition: opacity 500ms ease-in, transform 500ms ease-in;
     transition-delay: 500ms;
   }
+ 
 }
 
 
