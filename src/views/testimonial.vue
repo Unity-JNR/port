@@ -1,26 +1,35 @@
 <template> 
     <Navigation/>
     <h1 id="heading">Testimonial</h1>
-<div v-for=" testimonials in $store.state.testimonial" v-bind:key="testimonials.name">
-	<div class="wrap animate pop">
-	<div class="overlay">
-		<div class="overlay-content animate slide-left delay-2">
-			<h1 class="animate slide-left pop delay-4"></h1>
-			<p class="animate slide-left pop delay-5" id="test" style=" margin-bottom: 2.5rem;">{{ testimonials.name }} <em>{{ testimonials.surname }}</em></p>
-		</div>
-		<div class="image-content animate slide delay-5" :style="{ backgroundImage: 'url(' + testimonials.url + ')' }"></div>
-		<div class="dots animate">
-			<div class="dot animate slide-up delay-6"></div>
-			<div class="dot animate slide-up delay-7"></div>
-			<div class="dot animate slide-up delay-8"></div>
-		</div>
-	</div>
-	<div class="text">
-		<p id="test"><img class="inset text-center text-wrap" :src=" testimonials.url" width="250px" height="250px" alt="" />{{ testimonials.message }}</p>
-	
-	</div>
-	</div>
+	<div class="container">
+  <div class="row">
+      <div v-for="testimonials in $store.state.testimonial" v-bind:key="testimonials.name" class="col-lg-6">
+        <div class="wrap animate pop">
+          <div class="overlay">
+            <div class="overlay-content animate slide-left delay-2">
+              <h1 class="animate slide-left pop delay-4"></h1>
+              <p class="animate slide-left pop delay-5" id="test" style=" margin-bottom: 2.5rem;">
+                {{ testimonials.name }} <em>{{ testimonials.surname }}</em>
+              </p>
+            </div>
+            <div class="image-content animate slide delay-5" :style="{ backgroundImage: 'url(' + testimonials.url + ')' }"></div>
+            <div class="dots animate">
+              <div class="dot animate slide-up delay-6"></div>
+              <div class="dot animate slide-up delay-7"></div>
+              <div class="dot animate slide-up delay-8"></div>
+            </div>
+          </div>
+          <div class="text">
+            <p id="test">
+              <img class="inset text-center text-wrap" :src="testimonials.url" width="250px" height="250px" alt="" />
+              {{ testimonials.message }}
+            </p>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
+
  </template>
  
  <script>
