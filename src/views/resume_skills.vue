@@ -11,12 +11,12 @@
 
                     <div class="card__content | flow">
                         <div class="card__content--container | flow">
-                            <h2 class="card__title">education</h2>
+                            <h2 class="card__title" id="h2">education</h2>
                             <div class="card__text-center">
-                                <p class="card__description">
+                                <p class="card__description" id="para">
                                     {{ $store.state.education.school }}
                                 </p>
-                                <p class="card__description">
+                                <p class="card__description" id="para">
                                     {{ $store.state.education.year }}
                                 </p>
                             </div>
@@ -34,15 +34,15 @@
 
                     <div class="card__content | flow">
                         <div class="card__content--container | flow">
-                            <h2 class="card__title">JOB</h2>
+                            <h2 class="card__title" id="h2">JOB</h2>
                             <div class="card__text-center">
-                                <p class="card__description">
+                                <p class="card__description" id="para">
                                     {{ $store.state.job.work }}
                                 </p>
-                                <p class="card__description">
+                                <p class="card__description" id="para">
                                     {{ $store.state.job.at }}
                                 </p>
-                                <p class="card__description">
+                                <p class="card__description" id="para">
                                     {{ $store.state.job.time }}
                                 </p>
                             </div>
@@ -89,7 +89,7 @@ import 'bootstrap/dist/js/bootstrap.js'
 
 </script>
 
-<style scoped>
+<style>
 #heading{
     color: white;
 }
@@ -114,9 +114,9 @@ color: lawngreen;
 
 
 /* Remove default margin */
-body,
-h2,
-p {
+.body,
+#h2,
+#Para {
   margin: 0;
 }
 
@@ -127,14 +127,14 @@ p {
   /* height: 100vh; */
 }
 
-h2 {
+#h2 {
   font-size: 2.25rem;
   font-family: var(--font-title);
   color: var(--white);
   line-height: 1.1;
 }
 
-p {
+#para {
   font-family: var(--font-text);
   font-size: 1rem;
   line-height: 1.5;
