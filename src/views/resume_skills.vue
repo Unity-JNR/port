@@ -54,6 +54,14 @@
     </div>
 </div>
 
+<div v-for="skill in $store.state.skills" :key="skill.level" id="placement">
+<div>
+  <img :src="skill.img" alt="" id="skillimage">
+  <p id="skilltext">{{skill.level}}</p>
+</div>
+
+</div>
+
 
     </template>
 
@@ -75,13 +83,17 @@ export default {
       this.$store.dispatch('fetcheducation');
     },
     fetchJob(){
-      return this.$store.dispatch('fetchJob');
+       this.$store.dispatch('fetchJob');
+    },
+    fetchSkills(){
+      this.$store.dispatch('fetchSkills');
     }
   },
 
   mounted(){
     this.fetcheducation
     this.fetchJob
+    this.fetchSkills
   }
  
 }
@@ -206,6 +218,21 @@ color: lawngreen;
 .card__text-center {
     text-align: center;
 }
+#skillimage{
+    width: 250px;
+    height: 250px;
+    background-color: white;
+  }
+  #placement{
+    display: inline-block;
+    padding: 20px;
+  }
+  #skilltext{
+    color: white;
+    font-weight: 800;
+    font-size: medium;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
 
 
 
@@ -274,6 +301,7 @@ color: lawngreen;
     transition: opacity 500ms ease-in, transform 500ms ease-in;
     transition-delay: 500ms;
   }
+ 
 }
 
 
