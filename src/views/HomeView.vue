@@ -2,7 +2,7 @@
   <div class="home">
    <Navigation/>
   </div>
-<div v-if="$store.state.home !== '' &&  $store.state.profile!==''">
+<div v-if="$store.state.home.length > 0 &&  $store.state.profile!==''">
 
   <div>
     <h1 id="home">
