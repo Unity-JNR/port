@@ -2,19 +2,23 @@
   <div class="home">
    <Navigation/>
   </div>
-<div v-if="$store.state.home.length > 0 &&  $store.state.profile!==''">
 
-  <div>
-    <h1 id="home">
-      {{ $store.state.home }}
-    </h1>
-    <img :src="$store.state.profile" alt="profile">
+  <div class="footers">
+
+    <div v-if="$store.state.home.length > 0 &&  $store.state.profile!==''">
+      
+      <div>
+        <h1 id="home">
+          {{ $store.state.home }}
+        </h1>
+        <img :src="$store.state.profile" alt="profile">
+      </div>
+    </div>
+    
+    <div v-else>
+      <spinner/>
+    </div>
   </div>
-</div>
-
-<div v-else>
-<spinner/>
-</div>
 
 <footers/>
 </template>
@@ -59,6 +63,12 @@ export default {
   -webkit-animation: shine 5s linear infinite;
   -webkit-background-clip: text;
 }
+
+
+  .footers{
+  height: 90vh;
+}
+
 
 @keyframes shine {
   0% {
