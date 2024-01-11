@@ -1,46 +1,52 @@
-<template> 
+<template>
+  <div>
     <Navigation/>
     <h1 id="heading">Projects</h1>
 
-    <div class="container">
+    <div v-if="$store.state.project.length > 0">
+      <div class="container">
         <div class="row">
-      <div v-for="projects in $store.state.project" :key="projects.title" class="col-lg-4">
-  
-      <div class="container-b">
-        <div class="card-b">
-          <div class="image">
-            <img :src="projects.url" />
-          </div>
-          <div class="content-b">
-            <h3 id="h3">{{ projects.title }}</h3>
-            <p id="p">{{ projects.decription }}</p>
-            <button class="btn btn-success"><a :href="projects.github" target="_blank">GitHub</a></button>
-            <button class="btn btn-success"><a :href="projects.vercel" target="_blank">Vercel</a></button>
+          <div v-for="project in $store.state.project" :key="project.title" class="col-lg-4">
+            <div class="container-b">
+              <div class="card-b">
+                <div class="image">
+                  <img :src="project.url" />
+                </div>
+                <div class="content-b">
+                  <h3 id="h3">{{ project.title }}</h3>
+                  <p id="p">{{ project.decription }}</p>
+                  <button class="btn btn-success"><a :href="project.github" target="_blank">GitHub</a></button>
+                  <button class="btn btn-success"><a :href="project.vercel" target="_blank">Vercel</a></button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-   
-  </div>
-</div>
-
+      </div> <!--container-->
     </div>
 
- 
+    <div v-else>
+      <spinner/>
+    </div>
+  </div>
+<footers></footers>
+</template>
 
-
-  
- </template>
  
  <script>
  // @ is an alias to /src
  import Navigation from '@/components/Navigation.vue'
+ import  spinner  from '@/components/spinner.vue'
+  import footers from '@/components/footer.vue'
 //  import 'bootstrap/dist/css/bootstrap.css'
  
  
  export default {
  
      components : {
-         Navigation
+         Navigation,
+         spinner,
+         footers
      },
      computed: {
         fetchProject() {
@@ -60,7 +66,11 @@
  <style scoped>
  #heading{
      color: white;
+     margin-bottom: 50px;
  }
+ #heading::first-letter {
+    color: lawngreen;
+  }
  #P{
     color: black !important ;
  }
