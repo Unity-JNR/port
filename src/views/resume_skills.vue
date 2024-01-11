@@ -1,67 +1,73 @@
 <template> 
    <Navigation/>
    <h1 id="heading">Resume/Skills</h1>
-   <div class="container">
-    <div class="row">
-        <!-- First Card - Education -->
-        <div class="col-lg-6">
-            <div class="body">
-                <article class="card">
-                    <img :src="$store.state.education.url" alt="PHA">
+   <div v-if="$store.state.education !== '' && $store.state.job !== '' && $store.state.skills.length > 0">
 
-                    <div class="card__content | flow">
-                        <div class="card__content--container | flow">
-                            <h2 class="card__title" id="h2">education</h2>
-                            <div class="card__text-center">
-                                <p class="card__description" id="para">
-                                    {{ $store.state.education.school }}
-                                </p>
-                                <p class="card__description" id="para">
-                                    {{ $store.state.education.year }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
+    <div class="container">
+     <div class="row">
+         <!-- First Card - Education -->
+         <div class="col-lg-6">
+             <div class="body">
+                 <article class="card">
+                     <img :src="$store.state.education.url" alt="PHA">
+ 
+                     <div class="card__content | flow">
+                         <div class="card__content--container | flow">
+                             <h2 class="card__title" id="h2">education</h2>
+                             <div class="card__text-center">
+                                 <p class="card__description" id="para">
+                                     {{ $store.state.education.school }}
+                                 </p>
+                                 <p class="card__description" id="para">
+                                     {{ $store.state.education.year }}
+                                 </p>
+                             </div>
+                         </div>
+                     </div>
+                 </article>
+             </div>
+         </div>
+ 
+         <!-- Second Card - Job -->
+         <div class="col-lg-6">
+             <div class="body">
+                 <article class="card text-center">
+                     <img :src="$store.state.job.url" alt="Northpine">
+ 
+                     <div class="card__content | flow">
+                         <div class="card__content--container | flow">
+                             <h2 class="card__title" id="h2">JOB</h2>
+                             <div class="card__text-center">
+                                 <p class="card__description" id="para">
+                                     {{ $store.state.job.work }}
+                                 </p>
+                                 <p class="card__description" id="para">
+                                     {{ $store.state.job.at }}
+                                 </p>
+                                 <p class="card__description" id="para">
+                                     {{ $store.state.job.time }}
+                                 </p>
+                             </div>
+                         </div>
+                     </div>
+                 </article>
+             </div>
+         </div>
+     </div>
+ </div> <!--container-->
+ 
+ <div v-for="skill in $store.state.skills" :key="skill.level" id="placement">
+ <div>
+   <img :src="skill.img" alt="" id="skillimage">
+   <p id="skilltext">{{skill.level}}</p>
+ </div>
+ 
+ </div> <!--skill-->
+   </div>
 
-        <!-- Second Card - Job -->
-        <div class="col-lg-6">
-            <div class="body">
-                <article class="card text-center">
-                    <img :src="$store.state.job.url" alt="Northpine">
-
-                    <div class="card__content | flow">
-                        <div class="card__content--container | flow">
-                            <h2 class="card__title" id="h2">JOB</h2>
-                            <div class="card__text-center">
-                                <p class="card__description" id="para">
-                                    {{ $store.state.job.work }}
-                                </p>
-                                <p class="card__description" id="para">
-                                    {{ $store.state.job.at }}
-                                </p>
-                                <p class="card__description" id="para">
-                                    {{ $store.state.job.time }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div v-for="skill in $store.state.skills" :key="skill.level" id="placement">
-<div>
-  <img :src="skill.img" alt="" id="skillimage">
-  <p id="skilltext">{{skill.level}}</p>
-</div>
-
-</div>
-
+   <div v-else>
+    <spinner/>
+   </div>
 
     </template>
 
@@ -69,13 +75,14 @@
 // @ is an alias to /src
 import Navigation from '@/components/Navigation.vue'
 import { Store } from 'vuex';
-import 'bootstrap/dist/css/bootstrap.css'
+import spinner from "@/components/spinner.vue"
 
 
 export default {
 
     components : {
-        Navigation
+        Navigation,
+        spinner
     },
     computed: {
     fetcheducation() {
