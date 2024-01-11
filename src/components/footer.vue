@@ -1,6 +1,6 @@
 <template>
 <div>
-<footer>
+<footer class="footer fixed-bottom">
 &copy {{ getdate() }} Unity Demas
 </footer>
 </div>
@@ -28,7 +28,9 @@ getdate(){
 </script>
 
 <style>
-
+footer{
+    color: white;
+}
 
 
 </style>
