@@ -2,35 +2,50 @@
   <div class="home">
    <Navigation/>
   </div>
+<div v-if="$store.state.home !== '' &&  $store.state.profile!==''">
 
   <div>
     <h1 id="home">
       {{ $store.state.home }}
     </h1>
+    <img :src="$store.state.profile" alt="profile">
   </div>
+</div>
+
+<div v-else>
+<spinner/>
+</div>
+
+<footers/>
 </template>
 
 <script>
 // @ is an alias to /src
 import Navigation from '@/components/Navigation.vue'
+import footers from '@/components/footer.vue'
+import spinner from '@/components/spinner.vue'
 
 export default {
   name: 'HomeView',
   components: {
-   Navigation
+   Navigation,
+   footers,
+   spinner
   },
   computed: {
     fetchHome() {
       // Call the fetchData action using dispatch
       this.$store.dispatch('fetchHome');
     },
-    // about(){
-    //   return this.$store.state.about;
-    // }
+    fetchProfile(){
+      this.$store.dispatch('fetchProfile');
+    }
+   
   },
 
   mounted(){
     this.fetchHome
+    this.fetchProfile
   }
 }
 </script>
