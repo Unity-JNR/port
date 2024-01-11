@@ -1,6 +1,6 @@
 <template>
 <div>
-<footer class="footer fixed-bottom">
+<footer class="footer">
 &copy {{ getdate() }} Unity Demas
 </footer>
 </div>
