@@ -69,6 +69,7 @@
     <spinner/>
    </div>
 
+   <footers/>
     </template>
 
 <script>
@@ -76,13 +77,15 @@
 import Navigation from '@/components/Navigation.vue'
 import { Store } from 'vuex';
 import spinner from "@/components/spinner.vue"
+import footers from "@/components/footer.vue"
 
 
 export default {
 
     components : {
         Navigation,
-        spinner
+        spinner,
+        footers
     },
     computed: {
     fetcheducation() {
@@ -233,6 +236,7 @@ color: lawngreen;
   #placement{
     display: inline-block;
     padding: 20px;
+    /* margin-bottom: 20px; */
   }
   #skilltext{
     color: white;
