@@ -5,11 +5,14 @@
       <h1 id="heading">About</h1>
     </div>
   </div>
-    <div>
+    <div class="footer_about">
       <!-- Your other components and content -->
   
       <div v-if="$store.state.about && typeof $store.state.about === 'string' && $store.state.about.trim() !== ''" id="about-text">
-        <p id="about-sentence" >{{ $store.state.about }}</p>
+        <p id="about-sentence" class=" lead text-center">{{ $store.state.about }}</p>
+        
+          <img :src="$store.state.aboutimage" alt="profile"  id="about-img" class="img-fluid">
+       
       </div>
   
       <div v-else>
@@ -17,10 +20,12 @@
       </div>
     </div>
   
-    <div class="footer">
+   
   
-      <footers/>
-    </div>
+
+    <footers/>
+  
+ 
   </template>
   
   <script>
@@ -42,11 +47,15 @@
         // Call the fetchData action using dispatch
         this.$store.dispatch('fetchData');
       },
+      fetchAbout(){
+      this.$store.dispatch('fetchAbout');
+    }
    
     },
   
     mounted(){
       this.fetchData
+      this.fetchAbout
     }
   }
    
@@ -68,6 +77,24 @@
   #about-text{
     margin: 50px;
   }
+  .footer_about{
+    height: 78vh;
+  }
+  #about-img{
+    width: 350px;
+    height: 350px;
+    
+  }
+  .img-about{
+    display: flex;
+    justify-content: center;
+    height: 20vh;
+    align-items: center;
+
+  }
+
+
+  
   
   
   
