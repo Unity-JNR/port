@@ -1,8 +1,8 @@
 <template>
 <div class="container">
-  <footer class="py-5 my-5">
+  <footer class="footer">
    
-    <p class="text-center text-muted">&copy {{ getdate() }} Unity Demas</p>
+    <p class="text-center text-white">&copy {{ getdate() }} Unity Demas</p>
   </footer>
 </div>
 
