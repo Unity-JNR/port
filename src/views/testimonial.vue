@@ -39,19 +39,22 @@
      <spinner/>
 	</div>
 
+	<footers/>
  </template>
  
  <script>
  // @ is an alias to /src
  import Navigation from '@/components/Navigation.vue'
 import spinner from "@/components/spinner.vue"
+import footers from "@/components/footer.vue"
 
  
  export default {
  
      components: {
          Navigation,
-		 spinner
+		 spinner,
+		 footers
      },
      methods: {
          fetchTestimonial() {
