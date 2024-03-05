@@ -63,7 +63,7 @@
     async submitForm() {
       try {
         // You can add form validation logic here if needed
-        alert('Form submitted with data:\n' + JSON.stringify(this.formData));
+        alert('Form has been submitted');
 
 
         // If you want to send an AJAX request, you can use libraries like Axios

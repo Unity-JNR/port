@@ -6,10 +6,10 @@
     <div class="container">
      <div class="row">
          <!-- First Card - Education -->
-         <div class="col-lg-6">
+         <div class="col-lg-6 pb-2">
              <div class="body">
                  <article class="card">
-                     <img :src="$store.state.education.url" alt="PHA">
+                     <img :src="$store.state.education.url" alt="PHA" class="img-fluid">
  
                      <div class="card__content | flow">
                          <div class="card__content--container | flow">

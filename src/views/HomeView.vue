@@ -11,7 +11,7 @@
         <h1 id="home">
           {{ $store.state.home }}
         </h1>
-        <img :src="$store.state.profile" alt="profile">
+        <img :src="$store.state.profile" alt="profile" class="img-fluid img">
       </div>
     </div>
     
@@ -56,27 +56,30 @@ export default {
 
 <style>
 #home {
-  color: transparent;
-  background: linear-gradient(90deg, transparent, white, transparent);
+  /* color: transparent; */
+  /* background: linear-gradient(90deg, transparent, white, transparent); */
   background-size: 200% 100%;
-  /* animation: shine 5s linear infinite; */
-  -webkit-animation: shine 5s linear infinite;
-  -webkit-background-clip: text;
+  color: aliceblue  ;
 }
 
+.img{
+  
+  /* border-radius: 50%; */
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  
+
+}
 
   .footers{
   height: 90vh;
 }
 
 
-@keyframes shine {
-  0% {
-    background-position-x: -100%;
-  }
-  100% {
-    background-position-x: 100%;
-  }
-}
+
 
 </style>
