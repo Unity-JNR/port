@@ -31,7 +31,7 @@
          <!-- Second Card - Job -->
          <div class="col-lg-6">
              <div class="body">
-                 <article class="card text-center">
+                 <article class="card text-center ">
                      <img :src="$store.state.job.url" alt="Northpine">
  
                      <div class="card__content | flow">
