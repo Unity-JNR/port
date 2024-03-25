@@ -13,7 +13,11 @@ export default createStore({
     project:[],
     skills:[],
     profile:[],
-    aboutimage:[]
+    aboutimage:[],
+    res:[],
+    dob:[],
+    passions:[],
+
   },
   mutations: {
     setData(state, data) {
@@ -42,6 +46,12 @@ export default createStore({
     },
     setAbout(state,data){
       state.aboutimage= data
+    },
+    setDOB(state,data){
+      state.dob = data
+    },
+    setpassions(state,data){
+      state.passions = data
     }
     
   },
@@ -112,7 +122,7 @@ export default createStore({
             return response.json();
           })
           .then(data => {
-          //  console.log(data[0])
+           console.log(data.jobs[0])
             commit('setJob', data.jobs[0]);
           })
           .catch(error => {
@@ -250,6 +260,22 @@ export default createStore({
         // Optionally, you can commit an error state mutation here
         // commit('setError', 'An unexpected error occurred');
       }
+    },
+    fetchDOB ({commit}){
+      fetch(hostedData)
+      .then(response=> response.json())
+      .then(data=> {
+        console.log(data.DOB[0])
+        commit('setDOB',data.DOB[0])
+      }) 
+    },
+    fetchpassions({commit}){
+      fetch(hostedData)
+      .then(response=> response.json())
+      .then(data=> {
+        console.log(data.passion[0])
+        commit('setpassions',data.passion[0])
+      })
     }
     
   },

@@ -21,6 +21,9 @@
                                  <p class="card__description" id="para">
                                      {{ $store.state.education.year }}
                                  </p>
+                                 <p class="card__description" id="para">
+                                   major subject: {{ $store.state.education.sub }}
+                                 </p>
                              </div>
                          </div>
                      </div>
@@ -47,6 +50,7 @@
                                  <p class="card__description" id="para">
                                      {{ $store.state.job.time }}
                                  </p>
+                                
                              </div>
                          </div>
                      </div>
