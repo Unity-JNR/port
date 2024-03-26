@@ -11,7 +11,6 @@
         <h1 id="home">
           {{ $store.state.home }}
         </h1>
-        <img :src="$store.state.profile" alt="profile" class="img-fluid img">
       </div>
     </div>
     
@@ -60,6 +59,16 @@ export default {
   /* background: linear-gradient(90deg, transparent, white, transparent); */
   background-size: 200% 100%;
   color: aliceblue  ;
+  font-family: Lora;
+  letter-spacing: 10px;
+  stroke: #ffa5d8;
+  font-size: 150px;
+  font-weight: 700;
+  stroke-width: 3;
+ 
+  animation: textAnimate 5s infinite alternate;
+
+
 }
 
 .img{
@@ -77,7 +86,28 @@ export default {
 
   .footers{
   height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+
+
+@keyframes textAnimate {
+  0% {
+    stroke-dasharray: 0 50%;
+    stroke-dashoffset: 20%;
+    fill: hsl(189, 68%, 75%);
+  }
+
+  100% {
+    stroke-dasharray: 50% 0;
+    stroke-dashoffset: -20%;
+    fill: hsla(189, 68%, 75%, 0%);
+  }
+}
+
+
 
 
 
